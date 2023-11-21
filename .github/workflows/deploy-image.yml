@@ -2,7 +2,7 @@ name: Docker Image CI # name of the GitHub Actions workflow
 
 on:
   push:
-    branches: [master] # triggers the workflow when pushed to the main branch
+    branches: [master] # triggers the workflow when pushed to the master branch
 
 jobs:
   build: # a job named "build"
