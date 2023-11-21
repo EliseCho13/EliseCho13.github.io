@@ -2,10 +2,10 @@
 layout: page
 title: For Your Cocktail
 description: a project with a background image
-img: assets/img/12.jpg
+img: assets/img/ForYourCocktailLogo.png
 importance: 1
 category: team
-url: https://github.com/silverwest8/MixBowl
+redirect: https://github.com/silverwest8/MixBowl
 related_publications: einstein1956investigations, einstein1950meaning
 ---
 

@@ -1,9 +1,10 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
+title: Codedang
+description: SKKU online judge system developed by SKKUDING
+img: assets/img/codedangLogo.png
 importance: 2
+redirect: https://github.com/skkuding/codedang
 category: team
 giscus_comments: true
 ---
