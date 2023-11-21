@@ -48,4 +48,4 @@ jobs:
           tag: "slim"
 
       # Push to the registry
-      - run: docker image push choyouji/al-folio:slim
+      - run: docker image push choyouji/cyj-folio:slim
