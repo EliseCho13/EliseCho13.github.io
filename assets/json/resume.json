@@ -57,12 +57,18 @@
   "certificates": [],
   "publications": [],
   "skills": [
-    "React.js",
-    "JavaScript",
-    "TypeScript",
-    "Vue.js",
-    "CSS3",
-    "HTML-5"
+    {
+      "name": "react.js",
+      "level": 8
+    },
+    {
+      "name": "vue,js",
+      "level": 5
+    },
+    {
+      "name": "javascript",
+      "level": 8
+    }
   ],
   "languages": [
     {
