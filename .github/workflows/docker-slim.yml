@@ -44,8 +44,8 @@ jobs:
           DSLIM_TARGET_COMPOSE_SVC: jekyll
           DSLIM_CONTINUE_AFTER: signal
         with:
-          target: EliseCho13/cyj-folio
+          target: choyouji/cyj-folio
           tag: "slim"
 
       # Push to the registry
-      - run: docker image push EliseCho13/al-folio:slim
+      - run: docker image push choyouji/al-folio:slim

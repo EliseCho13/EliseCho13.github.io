@@ -23,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: EliseCho13/cyj-folio
+          images: choyouji/cyj-folio
 
       - name: Login
         uses: docker/login-action@v2

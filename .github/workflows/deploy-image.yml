@@ -36,5 +36,5 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64,linux/arm64/v8
-          tags: EliseCho13/al-folio
+          tags: choyouji/cyj-folio
         # Build and push Docker image using the docker/build-push-action action of version 4. Also specifies the build context, enables pushing, sets supported platforms, and specifies image tags.
