@@ -1,26 +1,20 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Youji Cho",
+    "label": "4th grade Student",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "youjicho@g.skku.edu",
+    "phone": "010-5247-8351",
+    "url": "https://eliseCho13.github.io",
+    "summary": "A Student Who Wants To Be A Frontend Engineer",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "2105 26-14",
+      "postalCode": "16323",
+      "city": "Suwon",
+      "countryCode": "Korea",
+      "region": "GyeongGi"
     },
-    "profiles": [
-      {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
-      }
-    ]
+    "profiles": []
   },
   "work": [
     {
@@ -63,9 +57,14 @@
   "awards": [],
   "certificates": [
     {
-      "name": "name",
-      "issuer": "",
-      "date": "202"
+      "name": "OPIC",
+      "issuer": "ACTFL",
+      "date": "2023-10-31"
+    },
+    {
+      "name": "eTest",
+      "issuer": "한국창의인성교육연구원",
+      "date": "2023-03-27"
     }
   ],
   "publications": [],
@@ -75,12 +74,20 @@
       "level": 8
     },
     {
-      "name": "vue,js",
-      "level": 5
+      "name": "vue.js",
+      "level": 6
     },
     {
       "name": "javascript",
       "level": 8
+    },
+    {
+      "name": "typescript",
+      "level": 4
+    },
+    {
+      "name": "python",
+      "level": 5
     }
   ],
   "languages": [
