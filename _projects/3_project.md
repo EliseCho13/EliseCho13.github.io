@@ -2,7 +2,7 @@
 layout: page
 title: HEART
 description: Healthy Exercise Around Residance Together
-img: assets/img/HeartLogo.jpg
+img: assets/img/HeartLogo.png
 redirect: https://github.com/codestates-seb/seb41_main_001
 importance: 3
 category: team
