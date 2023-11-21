@@ -1,28 +1,33 @@
-name: Docker Image CI
+name: Docker Image CI # name of the GitHub Actions workflow
 
 on:
   push:
-    branches: [master]
+    branches: [main] # triggers the workflow when pushed to the main branch
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build: # a job named "build"
+    runs-on: ubuntu-latest # job should run with the latest version of Ubuntu
     if: github.repository_owner == 'EliseCho13'
+    # the job only runs if the repository owner is me
 
-    steps:
+    steps: # steps of "build" job
       - name: Checkout
         uses: actions/checkout@v3
+        # checks out the code from repository using the actions/checkout action of version 3.
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
+        # sets up QEMU using the docker/setup-qemu-action action of version 2.
 
       - name: Buildx
         uses: docker/setup-buildx-action@v2
+        # sets up Buildx using the docker/setup-buildx-action action of version 2
 
       - name: Login
         uses: docker/login-action@v2
+        # logs in to the Docker registry using the docker/login-action action of version 2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_USERNAME }} # Docker username and password are stored in GitHub secrets.
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push
@@ -32,3 +37,4 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64/v8
           tags: amirpourmand/al-folio
+        # Build and push Docker image using the docker/build-push-action action of version 4. Also specifies the build context, enables pushing, sets supported platforms, and specifies image tags.
