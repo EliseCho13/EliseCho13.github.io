@@ -1,7 +1,7 @@
 ---
 layout: page
 title: For Your Cocktail
-description: a project with a background image
+description: cocktail web app with recipes, community, map
 img: assets/img/ForYourCocktailLogo.png
 importance: 1
 category: team
