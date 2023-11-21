@@ -30,9 +30,7 @@
       "startDate": "1933-01-01",
       "endDate": "1955-01-01",
       "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": [
-        "Relativity"
-      ]
+      "highlights": ["Relativity"]
     }
   ],
   "volunteer": [],
@@ -45,9 +43,7 @@
       "startDate": "1905-01-01",
       "endDate": "1905-01-01",
       "score": "",
-      "courses": [
-        "Theory of Relativity"
-      ]
+      "courses": ["Theory of Relativity"]
     }
   ],
   "awards": [
@@ -60,10 +56,17 @@
   ],
   "certificates": [],
   "publications": [],
-  "skills": [],
+  "skills": [
+    "React.js",
+    "JavaScript",
+    "TypeScript",
+    "Vue.js",
+    "CSS3",
+    "HTML-5"
+  ],
   "languages": [
     {
-      "language": "German",
+      "language": "Korean",
       "fluency": "Native speaker"
     },
     {
