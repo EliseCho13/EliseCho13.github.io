@@ -1,49 +1,65 @@
 name: deploy
+# Name of GitHub Actions workflow
 
-on:
+on: # events that trigger the workflow:
   push:
     branches:
       - master
-      - main
+      - main # Triggered on pushes to the master, main branches
   pull_request:
     branches:
       - master
-      - main
+      - main # Triggered on pull requests to the master or main branches
   workflow_dispatch:
+    # Triggered manually using the GitHub Actions workflow_dispatch
 
 permissions:
   contents: write
+  # workflow has permission to write to repository contents.
 
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout 🛎️
-      uses: actions/checkout@v3
-    - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.2.2'
-        bundler-cache: true
-    - name: Update _config.yml ⚙️
-      uses: fjogeleit/yaml-update-action@v0.13.1
-      with:
-        commitChange: false
-        valueFile: '_config.yml'
-        propertyPath: 'giscus.repo'
-        value: ${{ github.repository }}
-    - name: Install and Build 🔧
-      run: |
-        pip3 install --upgrade jupyter
-        npm install -g mermaid.cli
-        npm install -g purgecss
-        export JEKYLL_ENV=production
-        bundle exec jekyll build --lsi
-        purgecss -c purgecss.config.js
-    - name: Deploy 🚀
-      if: github.event_name != 'pull_request'
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: _site
+    # definition of the jobs, starting with a job named "deploy".
 
+    runs-on: ubuntu-latest
+    # job should run on a machine with the latest version of Ubuntu.
+
+    steps:
+      # steps of the "deploy" job.
+
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        # checks out the code from repository using the actions/checkout action of version 3.
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.2"
+          bundler-cache: true
+        # sets up ruby using the ruby/setup-ruby action of version 1. It also specifies ruby version to be 3.2.2 and enables bundler cache.
+
+      - name: Update _config.yml ⚙️
+        uses: fjogeleit/yaml-update-action@v0.13.1
+        with:
+          commitChange: false
+          valueFile: "_config.yml"
+          propertyPath: "giscus.repo"
+          value: ${{ github.repository }}
+        # uses the fjogeleit/yaml-update-action action to update value in the _config.yml file. Also updates the giscus.repo property with the githubb repository.
+
+      - name: Install and Build 🔧
+        run: |
+          pip3 install --upgrade jupyter
+          npm install -g mermaid.cli
+          npm install -g purgecss
+          export JEKYLL_ENV=production
+          bundle exec jekyll build --lsi
+          purgecss -c purgecss.config.js
+        # run commands for the build process. Installs dependencies for Jupyter, Mermaid, PurgeCSS. Also sets the JEKYLL_ENV environment variable to "production" and builds the Jekyll site.
+
+      - name: Deploy 🚀
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
+        # Deploys the site using the JamesIves/github-pages-deploy-action action with version 4. It specifies the deployment folder as _site. And the deployment is conditioned on the event not being a pull request.
