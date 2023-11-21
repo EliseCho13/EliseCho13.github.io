@@ -1,34 +1,39 @@
 name: Docker Slim
+# name of the GitHub Actions workflow
 
-#Only trigger, when the build workflow succeeded
 on:
   workflow_run:
-    workflows: ["Docker Image CI"]
+    workflows: ["Docker Image CI"] # it is only triggered when the 'Docker Image CI' workflow succeeds
     types:
       - completed
 
-# on:
-#   push:
-#     branches:
-#       - 'master'
-
-jobs:
+jobs: # starts job
   build:
+    # a job named 'build'
+
     runs-on: ubuntu-latest
+    # this job should run on a machine with the latest version of ubuntu
+
     if: github.repository_owner == 'EliseCho13'
+    # the job only runs if the repository owner is me
 
     defaults:
       run:
         working-directory: ${{ github.workspace }}
+      # sets the default working-directory for all run steps to the GitHub workspace
 
     steps:
+      # steps of the 'build' job
+
       - name: Checkout
         uses: actions/checkout@v3
+        # checks out the code from repository using the actions/checkout action of version 3.
 
       - name: Login
+        # logs in to the Docker registry using the docker/login-action action of version 2
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_USERNAME }} # Docker username and password are stored in GitHub secrets.
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: update docker-compose
@@ -36,6 +41,8 @@ jobs:
         run: |
           sed -i "s|\.:|${{ github.workspace }}:|g" ${{ github.workspace }}/docker-compose.yml
           cat ${{ github.workspace }}/docker-compose.yml
+        # updates the paths in the docker-compose.yml file to use gitHub workspace. It uses sed to replace occurrences of '.' with the gitHub workspace path.
+        # Prints the updated docker-compose.yml file for verification
 
       - uses: kitabisa/docker-slim-action@v1.0.3
         env:
@@ -46,6 +53,7 @@ jobs:
         with:
           target: choyouji/cyj-folio
           tag: "slim"
+        # uses the kitabisa/docker-slim-action action with version 1.0.3 to slim down the Docker image. And configures environment variables, parameters for the Docker Slim tool.
 
-      # Push to the registry
       - run: docker image push choyouji/cyj-folio:slim
+        # push the slimmed-down Docker image to the docker registry of mine
